@@ -41,6 +41,86 @@ Exercise 4
 
 Solve Exercise 4 here:
 */
+// The starter Pokémon is selected and added to the game party
+game.addCounter = 0;
+game.autoAddCounter = () => addCounter > 0 && addCounter < pokemon.length 
+? addCounter++ : 0;
+
+game.selectStarter = () => {
+  for (let i = game.addCounter; i < pokemon.length; i++) {
+    if (pokemon[i].starter) {
+      game.party.push(pokemon[i]);
+      game.addCounter++;
+      break;
+    }
+  }
+};
+
+game.selectStarter();
+console.log(game.party);
+console.log(`==================`);
+
+/*
+Exercise 5
+1. Choose three more Pokémon from the `pokemon` array and add them to your party.
+2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
+
+
+Solve Exercise 5 here:
+*/
+game.addFalse = () => {
+  for (let i = game.addCounter; i < pokemon.length; i++) {
+    if (!pokemon[i].starter) {
+      game.party.push(pokemon[i]);
+      game.addCounter++;
+      break;
+    }
+  }
+};
+
+game.addHP = () => {
+  for (let i = game.addCounter; i < pokemon.length; i++) {
+    if (pokemon[i].hp > 50) {
+      game.party.push(pokemon[i]);
+      game.addCounter++;
+      break;
+    }
+  }
+};
+
+game.addFire = () => {
+  for (let i = game.addCounter; i < pokemon.length; i++) {
+    if (pokemon[i].type.toLowerCase() === 'fire') {
+      game.party.push(pokemon[i]);
+      game.addCounter++;
+      break;
+    }
+  }
+};
+
+game.addHP();
+game.addFire();
+game.addFalse();
+
+console.log(game.party);
+console.log(`==================`);
+
+/*
+Exercise 6
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 6 here:
+*/
+// The completedGyms function checks each gym's difficulty and sets the completed property accordingly
+game.completedGyms = () => game.gyms.forEach(gym => gym.difficulty < 3 
+  ? gym.completed = true : gym.completed = false);
+
+game.completedGyms();
+
+console.log(game.gyms);
+console.log(`==================`);
 
 
 console.log(`==================`);
