@@ -43,14 +43,23 @@ Solve Exercise 4 here:
 */
 // The starter Pokémon is selected and added to the game party
 game.addCounter = 0;
-game.autoAddCounter = () => addCounter > 0 && addCounter < pokemon.length 
-? addCounter++ : 0;
+game.autoAddCounter = () => game.addCounter > 0 && game.addCounter < pokemon.length 
+? game.addCounter++ : 0;
+
+game.isIncludeParty = (num) => {
+  for (let i = 0; i < game.party.length; i++) {
+    if (game.party[i].number === pokemon[num].number) {
+      return true;
+    }
+  }
+  return false;
+};
 
 game.selectStarter = () => {
   for (let i = game.addCounter; i < pokemon.length; i++) {
-    if (pokemon[i].starter) {
+    if (pokemon[i].starter && !game.isIncludeParty(i)) {
       game.party.push(pokemon[i]);
-      game.addCounter++;
+      game.autoAddCounter();
       break;
     }
   }
@@ -68,21 +77,24 @@ Exercise 5
 
 Solve Exercise 5 here:
 */
-game.addFalse = () => {
+
+game.addHPLow = () => {
   for (let i = game.addCounter; i < pokemon.length; i++) {
-    if (!pokemon[i].starter) {
+    if (pokemon[i].hp < 50 && pokemon[i].starter 
+      && !game.isIncludeParty(i)) {
       game.party.push(pokemon[i]);
-      game.addCounter++;
+      game.autoAddCounter();
       break;
     }
   }
 };
 
-game.addHP = () => {
+game.addHPHigh = () => {
   for (let i = game.addCounter; i < pokemon.length; i++) {
-    if (pokemon[i].hp > 50) {
+    if (pokemon[i].hp >= 50 && pokemon[i].starter 
+      && !game.isIncludeParty(i)) {
       game.party.push(pokemon[i]);
-      game.addCounter++;
+      game.autoAddCounter();
       break;
     }
   }
@@ -90,17 +102,18 @@ game.addHP = () => {
 
 game.addFire = () => {
   for (let i = game.addCounter; i < pokemon.length; i++) {
-    if (pokemon[i].type.toLowerCase() === 'fire') {
+    if (pokemon[i].type.toLowerCase() === 'fire' && pokemon[i].starter 
+    && !game.isIncludeParty(i)) {
       game.party.push(pokemon[i]);
-      game.addCounter++;
+      game.autoAddCounter();
       break;
     }
   }
 };
 
-game.addHP();
-game.addFire();
-game.addFalse();
+game.addFire();// this will add pokemon number 4: Charmander
+game.addHPLow();// this will add pokemon number 7: Squirtle
+game.addHPHigh();// this will not add any pokemon as there is no starter with hp >= 50
 
 console.log(game.party);
 console.log(`==================`);
@@ -122,7 +135,41 @@ game.completedGyms();
 console.log(game.gyms);
 console.log(`==================`);
 
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
 
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+
+// function not finished yet
+game.evolvePokemon = () => {
+  for (let i = 0; i < game.party.length; i++) {
+    if(game.party[i].number < pokemon.length) {
+      game.party[i] = pokemon[game.party[i].number + 1];
+    }
+    else {
+      game.party[i] = pokemon[0];
+    }
+  }
+};
+
+console.log(game.party);
+game.evolvePokemon();
 console.log(`==================`);
+console.log(game.party);
+console.log(`==================`);
+
+
 console.log(`==================`);
 console.log(`==================`);
