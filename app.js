@@ -233,6 +233,23 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
+game.catchPokemonWithPokeball = (pokemonObj) => {
+  if (game.isIncludeParty(pokemonObj.number)) {
+    `Pokemone is already exist in the party`;
+  }
+  else{
+    game.party.push(pokemonObj);
+  }
+
+  game.items[1].quantity --;
+}  
+
+//quantity before the method
+console.log(game.items);
+
+game.catchPokemonWithPokeball(pokemon[71]);
+//quantity after the method
+console.log(game.items);
 console.log(`==================`);
 
 /*
