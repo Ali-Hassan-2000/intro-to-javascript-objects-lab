@@ -285,7 +285,23 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
+game.gymStatus = () => {
 
+  const gymTally = { completed: 0, incomplete: 0 };
+
+  for (let x in game.gyms) {
+    if (game.gyms[x].completed) {
+      gymTally.completed++;
+    } else 
+      {
+      gymTally.incomplete++;
+    }
+  }
+
+  console.log(gymTally);
+};
+
+game.gymStatus();
 console.log(`==================`);
 
 /*
@@ -299,6 +315,7 @@ This method should:
 
 Solve Exercise 14 here:
 */
+
 
 console.log(`==================`);
 
