@@ -234,13 +234,8 @@ Solve Exercise 11 here:
 */
 
 game.catchPokemonWithPokeball = (pokemonObj) => {
-  if (game.isIncludeParty(pokemonObj.number)) {
-    `Pokemone is already exist in the party`;
-  }
-  else{
-    game.party.push(pokemonObj);
-  }
 
+  game.catchPokemon = (pokemonObj)
   game.items[1].quantity --;
 }  
 
@@ -260,7 +255,11 @@ Exercise 12
 Solve Exercise 12 here:
 */
 
+game.completedGymsLvl6 = () => game.gyms.forEach(gym => gym.difficulty < 6
+  ? gym.completed = true : gym.completed = false);
 
+game.completedGymsLvl6();
+console.log(game.gyms);
 console.log(`==================`);
 
 /*
@@ -285,6 +284,7 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
+
 
 console.log(`==================`);
 
