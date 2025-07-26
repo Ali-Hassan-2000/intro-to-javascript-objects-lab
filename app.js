@@ -329,6 +329,12 @@ Exercise 15
 Solve Exercise 15 here:
 */
 
+game.completedGymsLvl8 = () => game.gyms.forEach(gym => gym.difficulty < 8
+  ? gym.completed = true : gym.completed = false);
+
+game.completedGymsLvl8();
+
+console.log(game.gyms);
 console.log(`==================`);
 
 /*
