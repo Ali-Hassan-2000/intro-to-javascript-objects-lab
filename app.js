@@ -421,6 +421,20 @@ Also, ensure that the Pokemon isn't added to the `game.party` or the `game.colle
 Solve Exercise 19 here:
 */
 
+game.catchPokemonWithPokeballMax6WithMessage = (pokemonObj) => {
+
+  if (game.items[1].quantity > 0) {
+  game.catchPokemonWithPokeball(pokemonObj);
+  }
+  else {
+    console.log("Not enough pokeballs to catch the desired Pokemon.");
+    game.collection.push(pokemonObj);
+  }
+} 
+
+game.catchPokemonWithPokeballMax6WithMessage(pokemon[107]);
+console.log(game.items);
+console.log(game.collection);
 console.log(`==================`);
 
 /*
