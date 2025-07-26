@@ -381,7 +381,35 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 18 here:
 */
 
+//not completed yet
+game.collection = [];
 
+game.catchPokemonWithPokeballMax6 = (pokemonObj) => {
+
+  if (game.party.length < 6) {
+  game.catchPokemon = (pokemonObj);
+  }
+  else { 
+  game.catchPokemon = (pokemonObj);
+  game.collection.push(game.party[game.party.length]);
+  }
+} 
+
+//before the method
+console.log(game.items);
+
+game.catchPokemonWithPokeballMax6(pokemon[99]);
+game.catchPokemonWithPokeballMax6(pokemon[100]);
+game.catchPokemonWithPokeballMax6(pokemon[101]);
+game.catchPokemonWithPokeballMax6(pokemon[102]);
+game.catchPokemonWithPokeballMax6(pokemon[103]);
+game.catchPokemonWithPokeballMax6(pokemon[104]);
+game.catchPokemonWithPokeballMax6(pokemon[105]);
+game.catchPokemonWithPokeballMax6(pokemon[106]);
+
+//after the method
+console.log(game.items);
+console.log(game.collection);
 console.log(`==================`);
 
 /*
