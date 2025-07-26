@@ -357,6 +357,9 @@ Exercise 17
 Solve Exercise 17 here:
 */
 
+game.party.sort((a, b) => b.hp - a.hp);
+
+console.log(game.party);
 console.log(`==================`);
 
 /*
