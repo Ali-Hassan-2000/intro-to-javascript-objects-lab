@@ -316,7 +316,9 @@ This method should:
 Solve Exercise 14 here:
 */
 
+game.partyCount = () => console.log(`${game.party.length} Pokémon in the party`);
 
+game.partyCount();
 console.log(`==================`);
 
 /*
