@@ -498,3 +498,15 @@ Log the object when it's constructed.
 
 Solve Exercise 21 here:
 */
+
+const pokemonByType = {}; // Initialize an empty object to hold the sorted Pokémon by type
+
+for (let i = 0; i < pokemon.length; i++) {
+  const pokeType = pokemon[i].type.toLowerCase(); // Convert type to lowercase for consistency
+  if (!pokemonByType[pokeType]) { 
+    pokemonByType[pokeType] = []; // Initialize an empty array for this type if it doesn't exist
+  }
+  pokemonByType[pokeType].push(pokemon[i]); // Add the Pokémon object to the corresponding type array
+}
+
+console.log(pokemonByType);
