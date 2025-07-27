@@ -448,6 +448,29 @@ If there is not a match, then return a string noting that the selected Pokemon d
 Solve Exercise 20 here:
 */
 
+game.catchPokemonByName = (pokemonName) => {
+  
+  let pokemonObj = null;
+  
+  for (let i = 0; i < pokemon.length; i++) {
+    if (pokemon[i].name.toLowerCase() === pokemonName.toLowerCase()) {
+      pokemonObj = pokemon[i];
+      break;
+    }
+  }
+
+  if (pokemonObj) {
+      game.catchPokemonWithPokeballMax6WithMessage(pokemonObj);
+  } 
+  else {
+    console.log(`The selected Pokemon "${pokemonName}" does not exist.`);
+  }
+};
+
+game.catchPokemonByName('Pikachu');
+game.catchPokemonByName('Bulbasaur');
+console.log(game.items);
+console.log(game.collection);
 console.log(`==================`);
 
 /*
